@@ -2,7 +2,7 @@
     include "topbit.php"; 
     
     
-    $find_sql="SELECT * FROM `game_details`";
+    $find_sql="SELECT * FROM `game_details` JOIN developer ON (game_details.DeveloperID=developer.DevID)";
     $find_query=mysqli_query($dbconnect, $find_sql);
     $find_rs=mysqli_fetch_assoc($find_query);
     $count=mysqli_num_rows($find_query);
@@ -42,6 +42,8 @@
             <div class="results">
             
             <p>Game Name: <span class="sub_heading"><?php echo $find_rs['Name'];?></span></p>
+                
+                <p>Developer: <?php echo $find_rs['DevName'];?></p>
             
 
             
