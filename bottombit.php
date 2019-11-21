@@ -6,27 +6,27 @@
            
            <hr />
            
-           <!-- Title Search -->           
-            <form method="post" action="title_search.php" enctype="multipart/form-data">
+           <!-- Name Search -->           
+            <form method="post" action="game_name.php" enctype="multipart/form-data">
                 
         
                 
-                <input class="search" type="text" name="title" size="40" value="" required placeholder="Title..." />
+                <input class="search" type="text" name="game_name" size="40" value="" required placeholder="Game Name..." />
                 
                 
-                <input class="submit" type="submit" name="find_title" value="&#xf002;" />
+                <input class="submit" type="submit" name="find_game_name" value="&#xf002;" />
             
             
             </form>     <!-- / Title Search -->
            
            <!-- Author Search -->           
-           <form method="post" action="author_search.php" enctype="multipart/form-data">
+           <form method="post" action="dev_search.php" enctype="multipart/form-data">
             
                 
-                <input class="search" type="text" name="author" size="50" value="" required placeholder="Author..." />
+                <input class="search" type="text" name="dev" size="50" value="" required placeholder="Developer..." />
                 
                 
-                <input type="submit" class="submit" name="find_author" value="&#xf002;" />
+                <input type="submit" class="submit" name="find_dev" value="&#xf002;" />
             
             </form> <!-- / Author search -->
            
