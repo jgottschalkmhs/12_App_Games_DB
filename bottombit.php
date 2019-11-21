@@ -1,4 +1,14 @@
-       <div class="box side">
+<?php
+
+$find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC 
+    " ;
+    $find_query=mysqli_query($dbconnect, $find_sql);
+    $find_rs=mysqli_fetch_assoc($find_query);
+    $count=mysqli_num_rows($find_query);
+
+?>
+
+    <div class="box side">
            
            <h2>Search | <a class="side" href="allentries.php">Show All</a></h2>
            
@@ -37,10 +47,23 @@
                
                <select name="genre">
                    <option value="" disabled selected>Genre...</option>
-                    <option value="Sci Fi">Science Fiction</option>
-                   <option value="Humour">Humour</option>
-                   <option value="Historical">Historical Fiction</option>
-                   <option value="Non Fiction">Non Ficton</option>
+                   
+                   <!-- options from database -->
+                   
+                   <?php
+                   
+                   do{ ?>
+                    <option value="<?php echo $find_rs['GenreName'];?>"><?php echo $find_rs['GenreName'];?></option>
+                   
+                   
+                   <?php
+                       
+                   } // end do
+                   
+                   while($find_rs=mysqli_fetch_assoc($find_query))
+                       
+                   ?>
+                   
                </select>
                 
                               
