@@ -42,7 +42,7 @@ if(mysqli_connect_errno()) {
     
         <!-- logo / small image goes here -->
         <div class="box logo">
-            <a href="index.php"><img src="Images/orchid.png" width="200" height="143" alt="" /></a>
+            <a href="index.php"><img src="images/apps_logo.png" width="199" height="145" alt="" /></a>
         </div> <!-- / logo -->
         
         <div class="box banner">

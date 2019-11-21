@@ -52,7 +52,7 @@ h1, h2, h3, h4 {
 
 /* make logo and banner the same colour */
 .logo, .main {
-    background-color: #dfcfbc;  /* beige */
+    background-color: #a9dae8;  /* light blue */
 }
 
 .banner, .side {
@@ -62,12 +62,18 @@ h1, h2, h3, h4 {
 
 .logo {
     grid-area: logo;
-    height: 143px;
-    border-radius: 0 5px 5px 0;
+    height: 144px;
+    border-radius: 5px;
     padding-left: 0;
     padding-top: 0;
     padding-bottom: 0;
+
     
+}
+
+img {
+    border-radius: 5px;
+
 }
 
 .banner {
@@ -119,7 +125,7 @@ a.side:hover {color:#8a1737; }
 /* non link | main structure styles */
 
 .results {
-    background-color: #f4ebe1;
+    background-color: #f0f0f0;
     border-radius: 10px;
     border: 1px solid #000;
     padding: 5px;
