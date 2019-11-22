@@ -24,23 +24,16 @@
             <!-- Results go here -->
             <div class="results">
             
-            <p>
                 <span class="sub_heading">
                  
                 <!-- name hyperlinked to URL -->
                 <a target="_blank" href="<?php echo $find_rs['URL']; ?>">
                     <?php echo $find_rs['Name'];?></a>
 
-                <!-- Rating in brackets -->
-                (Rating: <?php echo $find_rs['Average Rating']; ?>)
                 
                 </span>
                 
-                
-                </p>
-                
-                <!-- Rating Experiment -->
-                <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
+           <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
                 <div class="star-ratings-sprite"><span style="width:32%;" class="star-ratings-sprite-rating"></span></div>
                 
                 
