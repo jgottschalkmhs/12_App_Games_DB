@@ -34,10 +34,20 @@
                 </span>
                 
            <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
+            <table>
+                <tr>
+                <td>
+                    <div class="star-ratings-sprite"><span style="width:<?php echo $find_rs['Average Rating'] / 5 * 100; ?>%;" class="star-ratings-sprite-rating"> </span></div>
+                </td>
+                <td>
+                    <div class="actual-rating">
+                    (<?php echo $find_rs['Average Rating']; ?>)
+                    </div>
+                </td>
+                </tr>
+            </table>
                 
-                <div class="star-ratings-sprite"><span style="width:<?php echo $find_rs['Average Rating'] / 5 * 100; ?>%;" class="star-ratings-sprite-rating"> </span> </div>
                 
-                (<?php echo $find_rs['Average Rating']; ?>)
                             
                 
             <p>Developer: <?php echo $find_rs['DevName'];?></p>
