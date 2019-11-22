@@ -33,10 +33,11 @@
                 
                 </span>
                 
-           <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
+
             <table>
                 <tr>
                 <td>
+                    <!-- Partial Stars Original Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
                     <div class="star-ratings-sprite"><span style="width:<?php echo $find_rs['Average Rating'] / 5 * 100; ?>%;" class="star-ratings-sprite-rating"> </span></div>
                 </td>
                 <td>
