@@ -34,8 +34,11 @@
                 </span>
                 
            <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
-                <div class="star-ratings-sprite"><span style="width:32%;" class="star-ratings-sprite-rating"></span></div>
                 
+                <div class="star-ratings-sprite"><span style="width:<?php echo $find_rs['Average Rating'] / 5 * 100; ?>%;" class="star-ratings-sprite-rating"> </span> </div>
+                
+                (<?php echo $find_rs['Average Rating']; ?>)
+                            
                 
             <p>Developer: <?php echo $find_rs['DevName'];?></p>
                 
