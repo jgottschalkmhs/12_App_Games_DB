@@ -56,12 +56,27 @@
             <p>Developer: <?php echo $find_rs['DevName'];?></p>
                 
             <p>
+                <!-- outputs 'Free' if app prices is 0, 
+                otherwise shows price -->
                 
-                Price: $<?php echo $find_rs['Price']; ?>
+                <?php 
+                if ($find_rs['Price'] == 0)
+                    
+                {
+                    
+                    ?>
+                    Free
+                    <?php
+                } // end 'if'
+                    
+                else {
+                ?>
+                Price: $<?php echo $find_rs['Price']; 
+                } // end else
                 
-                <!-- displays in app purchase only if it exists -->
-                <?php
-                  if($find_rs['In App Purchase'] == 1) {
+                
+                // Displays 'In app purchase' if necessary
+                if($find_rs['In App Purchase'] == 1) {
                       
                       ?>
                         &nbsp; &nbsp;(In App Purchase)
