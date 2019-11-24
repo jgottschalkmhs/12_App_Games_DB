@@ -130,12 +130,6 @@ img {
 }
 
 
-/* form styling */
-.required {
-    color: #ad0000;
-}
-
-
 /* Link styling */
 
 /* links in page */
@@ -207,7 +201,13 @@ a.side:hover {color:#8a1737; }
     text-align: center;
 }
 
-/* Form formatting */
+/* App form formatting */
+.required {
+    color: #ad0000;
+}
+
+
+/* Side Form formatting */
 
 
 .searchform {

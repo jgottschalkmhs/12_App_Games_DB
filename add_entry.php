@@ -4,9 +4,11 @@
     
     // Initialise variables
 
-    $app_name_error = "oops this is blank";
+    $app_name_error = $url_error = "";
 
     $app_name = "";
+    $url = "";
+    $subtitle = "";
 
     // Error Checking
     
@@ -24,7 +26,17 @@
                
         <p>
 			<b>App Name<sup class="required">*</sup></b>:&nbsp;&nbsp;
-			<input type="text" name="app_name" size="25" value="<?php echo $app_name; ?>" required />&nbsp;<span class="required"><?php echo $app_name_error; ?></span>
+			<input type="text" name="app_name" size="45" value="<?php echo $app_name; ?>" required />&nbsp;<span class="required"><?php echo $app_name_error; ?></span>
+		</p>
+               
+        <p>
+			<b>Subtitle</b>:&nbsp;&nbsp;
+			<input type="text" name="subtitle" size="45" value="<?php echo $subtitle; ?>"  />
+		</p>
+               
+        <p>
+			<b>URL<sup class="required">*</sup></b>:&nbsp;&nbsp;
+			<input type="text" name="url" size="45" value="<?php echo $url; ?>" required />&nbsp;<span class="required"><?php echo $url_error; ?></span>
 		</p>
                
         
