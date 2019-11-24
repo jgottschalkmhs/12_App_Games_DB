@@ -10,14 +10,14 @@ $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC
 
     <div class="box side">
            
-           <h2>Search | <a class="side" href="allentries.php">Show All</a></h2>
+        <h2><a href="add_entry.php">Add an App</a> | <a class="side" href="allentries.php">Show All</a></h2>
            
            <i>Type part of a text field if desired</i>
            
            <hr />
            
            <!-- Name Search -->           
-            <form method="post" action="game_name.php" enctype="multipart/form-data">
+            <form class="searchform" method="post" action="game_name.php" enctype="multipart/form-data">
                 
         
                 
@@ -30,7 +30,7 @@ $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC
             </form>     <!-- / Title Search -->
            
            <!-- Author Search -->           
-           <form method="post" action="dev_search.php" enctype="multipart/form-data">
+           <form class="searchform" method="post" action="dev_search.php" enctype="multipart/form-data">
             
                 
                 <input class="search" type="text" name="dev" size="50" value="" required placeholder="Developer..." />
@@ -42,7 +42,7 @@ $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC
            
            <br />
            
-           <form method="post" action="genre_search.php" enctype="multipart/form-data">
+           <form class="searchform" method="post" action="genre_search.php" enctype="multipart/form-data">
                
                
                <select name="genre">
@@ -73,7 +73,7 @@ $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC
            </form>  <!-- / Genre search -->
            
                       
-           <form method="post" action="rating_search.php" enctype="multipart/form-data">
+           <form class="searchform" method="post" action="rating_search.php" enctype="multipart/form-data">
                
             <select class="half_width" name="amount">
                 <option value="more" selected>At least...</option>

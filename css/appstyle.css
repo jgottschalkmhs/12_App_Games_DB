@@ -130,6 +130,12 @@ img {
 }
 
 
+/* form styling */
+.required {
+    color: #ad0000;
+}
+
+
 /* Link styling */
 
 /* links in page */
