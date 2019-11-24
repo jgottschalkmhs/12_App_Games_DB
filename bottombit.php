@@ -21,7 +21,7 @@ $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC
                 
         
                 
-                <input class="search" type="text" name="game_name" size="40" value="" required placeholder="Game Name..." />
+                <input class="search" type="text" name="game_name" size="40" value="" required placeholder="App Name..." />
                 
                 
                 <input class="submit" type="submit" name="find_game_name" value="&#xf002;" />
