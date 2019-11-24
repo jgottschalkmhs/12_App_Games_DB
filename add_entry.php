@@ -2,12 +2,19 @@
     include "topbit.php"; 
     
 
-    // sql to populate genre field
-  $genre_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC 
+    // sql to populate drop downs
+    $find_sql="SELECT * FROM `game_details` 
+    JOIN developer ON (game_details.DeveloperID=developer.DevID)
+    JOIN genre ON (game_details.GenreID=genre.GenreID)
+    ORDER BY game_details.Name ASC
     " ;
-    $genre_query=mysqli_query($dbconnect, $genre_sql);
-    $genre_rs=mysqli_fetch_assoc($genre_query);
-    $count=mysqli_num_rows($genre_query);
+    $find_query=mysqli_query($dbconnect, $find_sql);
+    $find_rs=mysqli_fetch_assoc($find_query);
+    $count=mysqli_num_rows($find_query);
+
+    $dev_sql="SELECT * FROM `developer` ORDER BY DevName ASC";
+    $dev_query=mysqli_query($dbconnect, $dev_sql);
+    $dev_rs=mysqli_fetch_assoc($dev_query);
 
 
     
@@ -65,14 +72,14 @@
                    <?php
                    
                    do{ ?>
-                    <option value="<?php echo $genre_rs['GenreName'];?>"><?php echo $genre_rs['GenreName'];?></option>
+                    <option value="<?php echo $find_rs['GenreName'];?>"><?php echo $find_rs['GenreName'];?></option>
                    
                    
                    <?php
                        
                    } // end do
                    
-                   while($genre_rs=mysqli_fetch_assoc($genre_query))
+                   while($find_rs=mysqli_fetch_assoc($find_query))
                        
                    ?>
                    
@@ -85,15 +92,34 @@
             <div class="developer">
             <b>Developer:</b><br />
 			<select name="developer">
-				<option value="companyA">companyA</option>
-				<option value="card">companyB</option>
-				<option value="adventure">companyC</option>
-			</select>
+                   <option value="" disabled selected>Developer...</option>
+                   
+                   <!-- options from database -->
+                   
+                   <?php
+                   
+                   do{ ?>
+                    <option value="<?php echo $dev_rs['DevName'];?>"><?php echo $dev_rs['DevName'];?></option>
+                   
+                   
+                   <?php
+                       
+                   } // end do
+                   
+                   while($dev_rs=mysqli_fetch_assoc($dev_query))
+                       
+                   ?>
+                   
+               </select>
             </div> <!-- / developer div -->
             
-        </div>  <!-- / flexbox -->
+        </div>  <!-- / genre / developer flexbox -->
         
-            </form>
+        <div class="flex-container">
+        
+        </div>  <!-- end of rating flex container -->
+        
+        </form>
 
           
             
