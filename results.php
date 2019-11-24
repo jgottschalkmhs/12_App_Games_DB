@@ -33,6 +33,7 @@
                 
                 </span>
                 
+                
 
             <table>
                 <tr>
@@ -45,6 +46,7 @@
                     (<?php echo $find_rs['Average Rating']; ?>)
                     </div>
                 </td>
+                    
                 </tr>
             </table>
                 
@@ -52,6 +54,23 @@
                             
                 
             <p>Developer: <?php echo $find_rs['DevName'];?></p>
+                
+            <p>
+                
+                Price: $<?php echo $find_rs['Price']; ?>
+                
+                <!-- displays in app purchase only if it exists -->
+                <?php
+                  if($find_rs['In App Purchase'] == 1) {
+                      
+                      ?>
+                        &nbsp; &nbsp;(In App Purchase)
+                    <?php
+                      
+                  }
+                ?>
+                
+            </p>
                 
             
             <p>Genre: <?php echo $find_rs['GenreName'];?></p>
