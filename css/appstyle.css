@@ -210,7 +210,7 @@ a.side:hover {color:#8a1737; }
 /* Form formatting */
 
 
-form {
+.searchform {
     width: 250px;
     margin: 5px;
 }
