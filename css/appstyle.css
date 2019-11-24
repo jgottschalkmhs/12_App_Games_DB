@@ -206,6 +206,11 @@ a.side:hover {color:#8a1737; }
     color: #ad0000;
 }
 
+input[type=text], select {
+  width: 95%;
+  
+}
+
 
 /* Side Form formatting */
 
@@ -235,6 +240,11 @@ a.side:hover {color:#8a1737; }
 
 input[type="submit"]:hover {
     background-color: #000;
+}
+
+input.search[type=text], select {
+  width: 200px;
+  
 }
 
 
