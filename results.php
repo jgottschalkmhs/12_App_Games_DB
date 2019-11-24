@@ -34,21 +34,16 @@
                 </span>
                 
                 
-
-            <table>
-                <tr>
-                <td>
+            
+            <div class="flex-container">
+                
                     <!-- Partial Stars Original Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
                     <div class="star-ratings-sprite"><span style="width:<?php echo $find_rs['Average Rating'] / 5 * 100; ?>%;" class="star-ratings-sprite-rating"> </span></div>
-                </td>
-                <td>
+                
                     <div class="actual-rating">
-                    (<?php echo $find_rs['Average Rating']; ?>)
+                    &nbsp; &nbsp;(<?php echo $find_rs['Average Rating']; ?>)
                     </div>
-                </td>
-                    
-                </tr>
-            </table>
+                </div>  <!-- close flex container -->
                 
                 
                             

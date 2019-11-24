@@ -104,6 +104,10 @@ img {
     background-color: #636263;
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 /* Star Rating CSS */
 /* Source: https://codepen.io/Bluetidepro/pen/GkpEa */
