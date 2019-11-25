@@ -12,7 +12,10 @@
     $find_rs=mysqli_fetch_assoc($find_query);
     $count=mysqli_num_rows($find_query);
 
-    $dev_sql="SELECT * FROM `developer` ORDER BY DevName ASC";
+    
+    // make searchable developer box
+    
+    $dev_sql="SELECT * FROM `developer`";
     $dev_query=mysqli_query($dbconnect, $dev_sql);
     $dev_rs=mysqli_fetch_assoc($dev_query);
 
@@ -89,28 +92,12 @@
             <!-- nbsp's below add small gap between drop down boxes -->
             &nbsp; &nbsp; &nbsp;
             
+            
             <div class="developer">
             <b>Developer:</b><br />
-			<select name="developer">
-                   <option value="" disabled selected>Developer...</option>
-                   
-                   <!-- options from database -->
-                   
-                   <?php
-                   
-                   do{ ?>
-                    <option value="<?php echo $dev_rs['DevName'];?>"><?php echo $dev_rs['DevName'];?></option>
-                   
-                   
-                   <?php
-                       
-                   } // end do
-                   
-                   while($dev_rs=mysqli_fetch_assoc($dev_query))
-                       
-                   ?>
-                   
-               </select>
+			<input type="text" name="developer" id="dev_search" placeholder="Developer Name" size="50" />
+            
+            <div id="suggestion-box"></div>
             </div> <!-- / developer div -->
             
         </div>  <!-- / genre / developer flexbox -->

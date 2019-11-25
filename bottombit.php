@@ -1,6 +1,6 @@
 <?php
 
-$find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC 
+    $find_sql="SELECT * FROM `genre` ORDER BY `genre`.`GenreName` ASC 
     " ;
     $find_query=mysqli_query($dbconnect, $find_sql);
     $find_rs=mysqli_fetch_assoc($find_query);

@@ -30,6 +30,34 @@ if(mysqli_connect_errno()) {
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/appstyle.css">    <!-- custom style sheet -->
+    
+    <!-- ajax / jquery code for autocomplete -->
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+        $("#dev_search").keyup(function(){
+        $.ajax({
+        type: "POST",
+        url: "readDeveloper.php",
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+        $("#dev_search").css("background-color:#FFF; url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+        $("#suggestion-box").show();
+        $("#suggestion-box").html(data);
+        $("#search-box").css("background","#FFF");
+        }
+        });
+        });
+        });
+
+        function selectDevName(val) {
+        $("#dev_search").val(val);
+        $("#suggestion-box").hide();
+        }
+    </script>
 
     
 </head>
