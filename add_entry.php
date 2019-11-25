@@ -2,15 +2,13 @@
     include "topbit.php"; 
     
 
-    // sql to populate drop downs
-    $find_sql="SELECT * FROM `game_details` 
-    JOIN developer ON (game_details.DeveloperID=developer.DevID)
-    JOIN genre ON (game_details.GenreID=genre.GenreID)
-    ORDER BY game_details.Name ASC
-    " ;
+    // sql to populate genre list
+    $find_sql="SELECT * FROM `genre` ORDER BY `GenreName` ASC" ;
     $find_query=mysqli_query($dbconnect, $find_sql);
     $find_rs=mysqli_fetch_assoc($find_query);
     $count=mysqli_num_rows($find_query);
+
+    // sql to populate genre drop down...
 
     
     // Initialise variables
