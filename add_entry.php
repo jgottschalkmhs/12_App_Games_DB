@@ -13,14 +13,6 @@
     $count=mysqli_num_rows($find_query);
 
     
-    // make searchable developer box
-    
-    $dev_sql="SELECT * FROM `developer`";
-    $dev_query=mysqli_query($dbconnect, $dev_sql);
-    $dev_rs=mysqli_fetch_assoc($dev_query);
-
-
-    
     // Initialise variables
 
     $app_name_error = $url_error = "Oops something went wrong";
