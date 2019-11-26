@@ -27,7 +27,7 @@
                
             
         <div class="box main">
-            <h2>Add an App to demonstrate something</h2>
+            <h2>Add an App</h2>
             
             <p>Fields marked with an <sup class="required">*</sup> are required.</p>
             
