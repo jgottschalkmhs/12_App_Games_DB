@@ -46,7 +46,7 @@
     
     
     // add data to database
-    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', 'A newspaper', '2.1', '12387', '3.45', '0', 'A newspaper, not a game', '6', '16', '3');";
+    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', '$subtitle', '$rating', '$rating_count', '$price', '$in_app', '$description', '$developer', '$age_rating', '$genre');";
     $addentry_query=mysqli_query($dbconnect,$addentry_sql);
         
     
