@@ -13,7 +13,7 @@
     
     // Initialise variables
 
-    $app_name_error = $url_error = $age_error = $desc_error = "Oops something went wrong";
+    $app_name_error = $url_error = $age_error = $desc_error = "";
 
     $app_name = "";
     $url = "";
@@ -103,9 +103,9 @@
         
         <div class="flex-container">
         <div>
-            <b>Age Rating</b>
+            <b>Age</b>
             <br />
-			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" required placeholder="Age Rating" />
+			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" required placeholder="Age" />
         </div> <!-- / age rating div -->
                 &nbsp; &nbsp; &nbsp;
             
@@ -124,9 +124,9 @@
         </div> <!-- / rating div -->
                &nbsp; &nbsp; &nbsp; 
         <div>
-            <b>Age Rating Count</b>
+            <b>Rating Count</b>
             <br />
-			<input type="text" name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="Age Rating" />
+			<input type="text" name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="# of Ratings" />
         </div> <!-- / age rating div -->
         
         
@@ -169,6 +169,10 @@
             <textarea name="description" rows="6" cols="100">
 			<?php echo $description; ?>
             </textarea>
+		</p>
+               
+        <p>
+			<input class="add-submit" type="submit" value="Submit" />
 		</p>
         
         </form>
