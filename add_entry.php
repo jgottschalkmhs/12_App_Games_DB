@@ -26,6 +26,7 @@
     $price = "";
     $in_app = "";
     $description = "";
+    $developerID = "";
 
     // Code below excutes when the form is submitted...
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -43,10 +44,39 @@
     $in_app = $_POST['in_app'];
     $description = $_POST['description'];
         
+    // Get Developer ID if it exists.
+        
+    $dev_sql = "SELECT * FROM `developer` WHERE `DevName` LIKE '$developer'";
+    $dev_query=mysqli_query($dbconnect, $dev_sql);
+    $dev_rs=mysqli_fetch_assoc($dev_query);
+    $dev_count=mysqli_num_rows($dev_query);
     
+    // if developer chosen from drop down box...
+    if ($dev_count > 0)
+    {
+        $developerID = $dev_rs['DevID'];
+    }
+        
+    else
+    {
+        // Add developer to developer list ...
+        $add_dev_sql = "INSERT INTO `developer` (`DevID`, `DevName`) VALUES (NULL, '$developer');";
+        $add_dev_sql = mysqli_query($dbconnect,$add_dev_sql);
+        
+        // Get developer ID
+            $newdev_sql = "SELECT * FROM `developer` WHERE `DevName` LIKE '$developer'";
+            $newdev_query=mysqli_query($dbconnect, $newdev_sql);
+            $newdev_rs=mysqli_fetch_assoc($newdev_query);
+        
+            $developerID = $newdev_rs['DevID'];
+            echo "Dev ID".$developerID;
+    }
+        
+    echo "Got to end of if";
     
     // add data to database
-    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', '$subtitle', '$rating', '$rating_count', '$price', '$in_app', '$description', '$developer', '$age_rating', '$genre');";
+    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', '$subtitle', '$rating', '$rating_count', '$price', '$in_app', '$description', '$developerID', '$age_rating', '$genre');";
+    
     $addentry_query=mysqli_query($dbconnect,$addentry_sql);
         
     
