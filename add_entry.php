@@ -69,17 +69,22 @@
             $newdev_rs=mysqli_fetch_assoc($newdev_query);
         
             $developerID = $newdev_rs['DevID'];
-            echo "Dev ID".$developerID;
+            
     }
         
-    echo "Got to end of if";
+    
     
     // add data to database
-    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', '$subtitle', '$rating', '$rating_count', '$price', '$in_app', '$description', '$developerID', '$age_rating', '$genre');";
-    
-    $addentry_query=mysqli_query($dbconnect,$addentry_sql);
+
+    // *** IMPORTANT ***
+    // Boolean variables (ie: $in-app) should NOT be in speech marks.
+        
+    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', '$subtitle', '$rating', '$rating_count', '$price', $in_app, '$description', '$developerID', '$age_rating', '$genre');";
         
     
+    $addentry_query=mysqli_query($dbconnect,$addentry_sql);
+    
+    echo "Got to end of insert and add";
         
     }
         
