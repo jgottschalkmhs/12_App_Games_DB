@@ -27,8 +27,32 @@
     $in_app = "";
     $description = "";
 
-    // Error Checking
+    // Code below excutes when the form is submitted...
+	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	{	
+	// Get values from form...
+	$app_name = $_POST['app_name'];
+    $subtitle = $_POST['subtitle'];
+    $url = $_POST['url'];
+    $genre = $_POST['genre'];;
+    $developer = $_POST['developer'];
+    $age_rating = $_POST['age_rating'];
+    $rating = $_POST['rating'];
+    $rating_count = $_POST['rating_count'];
+    $price = $_POST['price'];
+    $in_app = $_POST['in_app'];
+    $description = $_POST['description'];
+        
     
+    
+    // add data to database
+    $addentry_sql = "INSERT INTO `game_details` (`ID`, `URL`, `Name`, `Subtitle`, `Average Rating`, `Rating Count`, `Price`, `In App Purchase`, `Description`, `DeveloperID`, `Age Rating`, `GenreID`) VALUES (NULL, '$url', '$app_name', 'A newspaper', '2.1', '12387', '3.45', '0', 'A newspaper, not a game', '6', '16', '3');";
+    $addentry_query=mysqli_query($dbconnect,$addentry_sql);
+        
+    
+        
+    }
+        
 ?>
                
             
@@ -61,8 +85,8 @@
                
         <div class="flex-container">
             
-            <div class="genere">
-            <b>Genre:</b><br />
+            <div class="genre">
+            <b>Genre<sup class="required">*</sup>:</b><br />
 			<select name="genre">
                    <option value="" disabled selected>Genre...</option>
                    
@@ -71,7 +95,7 @@
                    <?php
                    
                    do{ ?>
-                    <option value="<?php echo $find_rs['GenreName'];?>"><?php echo $find_rs['GenreName'];?></option>
+                    <option value="<?php echo $find_rs['GenreID'];?>"><?php echo $find_rs['GenreName'];?></option>
                    
                    
                    <?php
@@ -90,7 +114,7 @@
             
             
             <div class="developer">
-            <b>Developer:</b><br />
+            <b>Developer<sup class="required">*</sup>:</b><br />
 			<input type="text" name="developer" id="dev_search" placeholder="Developer Name" size="50" />
             
             <div id="suggestion-box"></div>
@@ -105,13 +129,13 @@
         <div>
             <b>Age</b>
             <br />
-			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" required placeholder="Age" />
+			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" placeholder="Age" />
         </div> <!-- / age rating div -->
                 &nbsp; &nbsp; &nbsp;
             
         <div>
             
-            <b>Rating</b><br />
+            <b>Rating<sup class="required">*</sup></b><br />
             <select class="half_width" name="rating">
   
                 <option value=1>&#9733;</option>
@@ -124,7 +148,7 @@
         </div> <!-- / rating div -->
                &nbsp; &nbsp; &nbsp; 
         <div>
-            <b>Rating Count</b>
+            <b>Rating Count<sup class="required">*</sup></b>
             <br />
 			<input type="text" name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="# of Ratings" />
         </div> <!-- / age rating div -->
@@ -153,8 +177,9 @@
             <div>
                 <b>In App Purchase...</b><br /><br />
                 <!-- defaults to 'yes' -->
-                <input class="radio-btn" type="radio" name="in_app" value="yes" checked="checked">Yes
-                <input class="radio-btn" type="radio" name="in_app" value="no">No
+                <!-- NOTE: value in database is boolean, so 'no' becomes 0 and 'yes' becomes 1 -->
+                <input class="radio-btn" type="radio" name="in_app" value="1" checked="checked">Yes
+                <input class="radio-btn" type="radio" name="in_app" value="0">No
                 
                 
                 
