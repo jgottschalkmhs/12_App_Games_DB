@@ -13,13 +13,19 @@
     
     // Initialise variables
 
-    $app_name_error = $url_error = "Oops something went wrong";
+    $app_name_error = $url_error = $age_error = $desc_error = "Oops something went wrong";
 
     $app_name = "";
     $url = "";
     $subtitle = "";
     $genre = "";
     $developer = "";
+    $age_rating = "";
+    $rating = "";
+    $rating_count = "";
+    $price = "";
+    $in_app = "";
+    $description = "";
 
     // Error Checking
     
@@ -90,11 +96,80 @@
             <div id="suggestion-box"></div>
             </div> <!-- / developer div -->
             
+            
+            
         </div>  <!-- / genre / developer flexbox -->
+        <br />
         
         <div class="flex-container">
+        <div>
+            <b>Age Rating</b>
+            <br />
+			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" required placeholder="Age Rating" />
+        </div> <!-- / age rating div -->
+                &nbsp; &nbsp; &nbsp;
+            
+        <div>
+            
+            <b>Rating</b><br />
+            <select class="half_width" name="rating">
+  
+                <option value=1>&#9733;</option>
+                <option value=2>&#9733;&#9733;</option>
+                <option value=3 selected>&#9733;&#9733;&#9733;</option>
+                <option value=4>&#9733;&#9733;&#9733;&#9733;</option>
+                <option value=5>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+            </select>
+            
+        </div> <!-- / rating div -->
+               &nbsp; &nbsp; &nbsp; 
+        <div>
+            <b>Age Rating Count</b>
+            <br />
+			<input type="text" name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="Age Rating" />
+        </div> <!-- / age rating div -->
+        
+        
         
         </div>  <!-- end of rating flex container -->
+               
+        <br />
+               
+        <div class="flex-container"> <!-- start of price div flex -->
+            
+            <div>
+                <b>Price</b><br >
+                
+                <!-- set up price box with $ sign... -->
+                <div class="money flex-container">
+                    <span class="dollar">$</span>
+                    <input class="dollar" type="text" name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
+                </div>  <!-- / money flex / $ container -->
+                
+            </div>  <!-- price div -->
+            
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <div>
+                <b>In App Purchase...</b><br /><br />
+                <!-- defaults to 'yes' -->
+                <input class="radio-btn" type="radio" name="in_app" value="yes" checked="checked">Yes
+                <input class="radio-btn" type="radio" name="in_app" value="no">No
+                
+                
+                
+            </div>  <!-- / in app radio -->
+            
+        </div>
+        
+        <p>
+			<b>Description<sup class="required">*</sup></b>&nbsp; &nbsp;<span class="required"><?php echo $desc_error; ?></span>
+            <br />
+            
+            <textarea name="description" rows="6" cols="100">
+			<?php echo $description; ?>
+            </textarea>
+		</p>
         
         </form>
 
