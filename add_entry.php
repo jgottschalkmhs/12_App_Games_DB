@@ -15,10 +15,12 @@
 
     $app_name_error = $url_error = $age_error = $desc_error = $price_error = "";
 
+    // Variables that control background of input boxes
     $price_back = "ok";
 
     $has_errors = "no";
 
+    // form variables
     $app_name = "";
     $url = "";
     $subtitle = "";
@@ -134,7 +136,7 @@
 			<b>URL<sup class="required">*</sup></b>&nbsp; &nbsp;<span class="required"><?php echo $url_error; ?></span>
             
             <br />
-			<input type="text" name="url" size="45" value="<?php echo $url; ?>" required  placeholder="http://" />
+			<input type="text" name="url" size="45" value="<?php echo $url; ?>" required  placeholder="http://" pattern="https?://.+" />
 		</p>
                
         <div class="flex-container">
@@ -181,9 +183,9 @@
         
         <div class="flex-container">
         <div>
-            <b>Age</b><span class="required"><?php echo $age_error; ?></span>
+            <b>For Ages...</b><span class="required"><?php echo $age_error; ?></span>
             <br />
-			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" placeholder="Age" />
+			<input type="number" min=0 name="age_rating" size="10" value="<?php echo $age_rating; ?>" placeholder="Age" />
         </div> <!-- / age rating div -->
                 &nbsp; &nbsp; &nbsp;
             
@@ -204,7 +206,7 @@
         <div>
             <b>Rating Count<sup class="required">*</sup></b>
             <br />
-			<input type="text" name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="# of Ratings" />
+			<input type="number" min=1 name="rating_count" size="10" value="<?php echo $rating_count; ?>" required placeholder="# of Ratings" />
         </div> <!-- / age rating div -->
         
         
@@ -222,7 +224,7 @@
                 <div class="flex-container">
                     
                     <span class="dollar <?php echo $price_back; ?>">$</span>
-                    <input class="dollar <?php echo $price_back; ?>" type="text" name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
+                    <input class="dollar <?php echo $price_back; ?>" type="number" min=0 name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
                     
                 </div>  <!-- / money flex / $ container -->
                 
