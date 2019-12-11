@@ -23,7 +23,10 @@
             
             <!-- Results go here -->
             <div class="results">
+                
+                <div class="flex-container">
             
+                <div>
                 <span class="sub_heading">
                  
                 <!-- name hyperlinked to URL -->
@@ -32,8 +35,31 @@
 
                 
                 </span>
+                </div>  <!-- / title div -->
+                    
+                <?php
+              
+                    if ($find_rs['Subtitle'] != "")
+                        
+                    { ?>
+                    
+                &nbsp; &nbsp; | &nbsp; &nbsp; 
+
+                <div>
                 
+             
+                       
+                <i><?php echo $find_rs['Subtitle']; ?></i>
+                    
+                </div>  <!-- / sub title -->
+                    
+                <?php
+                    } // end subtitle if
+                    
+            ?>
+                          
                 
+            </div>  <!-- / title | subtitle flexbox -->
             
             <div class="flex-container">
                 
@@ -49,6 +75,8 @@
                             
                 
             <p>Developer: <?php echo $find_rs['DevName'];?></p>
+                
+
                 
             <p>
                 <!-- outputs 'Free' if app prices is 0, 

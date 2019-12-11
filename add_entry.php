@@ -13,17 +13,21 @@
     
     // Initialise variables
 
-    $app_name_error = $url_error = $age_error = $desc_error = "";
+    $app_name_error = $url_error = $age_error = $desc_error = $price_error = "";
+
+    $price_back = "ok";
+
+    $has_errors = "no";
 
     $app_name = "";
     $url = "";
     $subtitle = "";
     $genre = "";
     $developer = "";
-    $age_rating = "";
+    $age_rating = 0;    // age rating defaults to 0 (ie: none)
     $rating = "";
     $rating_count = "";
-    $price = "";
+    $price = 0;     // price defaults to free
     $in_app = "";
     $description = "";
     $developerID = "";
@@ -35,7 +39,7 @@
 	$app_name = $_POST['app_name'];
     $subtitle = $_POST['subtitle'];
     $url = $_POST['url'];
-    $genre = $_POST['genre'];;
+    $genre = $_POST['genre'];
     $developer = $_POST['developer'];
     $age_rating = $_POST['age_rating'];
     $rating = $_POST['rating'];
@@ -43,6 +47,15 @@
     $price = $_POST['price'];
     $in_app = $_POST['in_app'];
     $description = $_POST['description'];
+        
+    // Error Checking goes here...
+        
+    if ($price < 0)
+    {
+        $has_errors = "yes";
+        $price_error = "(No negatives!)";
+        $price_back = "oops";
+    }
         
     // Get Developer ID if it exists.
         
@@ -72,9 +85,13 @@
             
     }
         
+    // if there are no errors, add data to database and take users to 'success' page
+        
+    if ($has_errors == "no")
+    {
+        
+    // put redirect to success page here
     
-    
-    // add data to database
 
     // *** IMPORTANT ***
     // Boolean variables (ie: $in-app) should NOT be in speech marks.
@@ -86,7 +103,9 @@
     
     echo "Got to end of insert and add";
         
-    }
+    } // adds item to database if there are no errors
+        
+    }   // end of submit button 'if'
         
 ?>
                
@@ -162,7 +181,7 @@
         
         <div class="flex-container">
         <div>
-            <b>Age</b>
+            <b>Age</b><span class="required"><?php echo $age_error; ?></span>
             <br />
 			<input type="text" name="age_rating" size="10" value="<?php echo $age_rating; ?>" placeholder="Age" />
         </div> <!-- / age rating div -->
@@ -197,12 +216,14 @@
         <div class="flex-container"> <!-- start of price div flex -->
             
             <div>
-                <b>Price</b><br >
+                <b>Price</b><span class="required">&nbsp; &nbsp;<?php echo $price_error; ?></span><br >
                 
                 <!-- set up price box with $ sign... -->
-                <div class="money flex-container">
-                    <span class="dollar">$</span>
-                    <input class="dollar" type="text" name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
+                <div class="flex-container">
+                    
+                    <span class="dollar <?php echo $price_back; ?>">$</span>
+                    <input class="dollar <?php echo $price_back; ?>" type="text" name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
+                    
                 </div>  <!-- / money flex / $ container -->
                 
             </div>  <!-- price div -->

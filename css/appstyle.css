@@ -312,5 +312,13 @@ select {
 
 #search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
 
+/* Error Box formatting */
+.oops {
+    background-color: #ffb7b7;
+    }
+
+.ok {
+    background-color: white;
+}
 
 
