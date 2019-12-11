@@ -224,7 +224,7 @@
                 <div class="flex-container">
                     
                     <span class="dollar <?php echo $price_back; ?>">$</span>
-                    <input class="dollar <?php echo $price_back; ?>" type="number" min=0 name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
+                    <input class="dollar <?php echo $price_back; ?>" name="price" size="10" value="<?php echo $price; ?>" required placeholder="Price" />
                     
                 </div>  <!-- / money flex / $ container -->
                 
