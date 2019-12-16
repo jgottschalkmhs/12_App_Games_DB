@@ -93,7 +93,7 @@
     {
         
     // put redirect to success page here
-    
+    header('Location: add_success.php');
 
     // *** IMPORTANT ***
     // Boolean variables (ie: $in-app) should NOT be in speech marks.
