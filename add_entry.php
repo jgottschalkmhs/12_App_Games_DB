@@ -103,9 +103,29 @@
     
     $addentry_query=mysqli_query($dbconnect,$addentry_sql);
     
-    echo "Got to end of insert and add";
+    // get ID for next page...
+    $getid_sql = "SELECT * FROM `game_details` WHERE 
+    `URL` LIKE '$url' AND
+    `Name` LIKE '$app_name' AND 
+    `Subtitle` LIKE '$subtitle' AND 
+    `Average Rating` = '$rating'  AND
+    `Rating Count` = $rating_count AND
+    `Price` = $price AND
+    `In App Purchase` LIKE $in_app AND
+    `DeveloperID` = $developerID AND
+    `Age Rating` = $age_rating AND
+    `GenreID` = $genre
+    ";
         
-    } // adds item to database if there are no errors
+    $getid_query=mysqli_query($dbconnect, $getid_sql);
+	$getid_rs=mysqli_fetch_assoc($getid_query);
+	$ID=$getid_rs['ID'];
+	
+	$_SESSION['ID']=$ID;
+        
+    echo "ID".$ID;
+        
+    } // end of adds item if there are no errors
         
     }   // end of submit button 'if'
         
